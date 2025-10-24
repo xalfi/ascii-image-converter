@@ -9,10 +9,10 @@ func CalculateChunkedBrightness(img image.Image, chunk_size_x int, chunk_size_y 
 	bounds := img.Bounds()
 
 	var chunked_brightness [][]int
-
-	for x_coord := bounds.Min.X; x_coord < bounds.Max.X; x_coord += chunk_size_x {
+	for y_coord := bounds.Min.Y; y_coord < bounds.Max.Y; y_coord += chunk_size_y {
 		var brightness_row []int
-		for y_coord := bounds.Min.Y; y_coord < bounds.Max.Y; y_coord += chunk_size_y {
+		for x_coord := bounds.Min.X; x_coord < bounds.Max.X; x_coord += chunk_size_x {
+
 			area := image.Rect(
 				x_coord,
 				y_coord,

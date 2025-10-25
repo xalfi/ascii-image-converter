@@ -37,7 +37,4 @@ func main() {
 	image_parser.SaveChunkedImage(chunked_average, "output.jpg")
 	ascii_generator.GenerateAsciiArtFromAverages(chunked_average)
 
-	//fmt.Println(string(colorRed), "test", string(colorReset))
-	//fmt.Println("next")
-
 }

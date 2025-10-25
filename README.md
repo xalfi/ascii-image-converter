@@ -5,7 +5,7 @@ A simple CLI tool to convert images to ASCII art.
 ## Features
 
 - Convert an image to ASCII art (color and monochrome).
-- Save an intermediate chunked image (`output.jpg`).
+- Save an intermediate chunked image.
 - Simple CLI with configurable width and character aspect ratio.
 
 ## Examples

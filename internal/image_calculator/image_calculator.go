@@ -4,6 +4,14 @@ import (
 	"image"
 )
 
+func CalculateChunkSizesWithWidth(img image.Image, new_width int, width_height_ratio float32) (int, int) {
+	img_width, img_height := img.Bounds().Max.X, img.Bounds().Max.Y // Assuming that the image always starts at (0,0)
+	chunk_size_x := img_width / new_width
+	new_height := int(float32(img_height/chunk_size_x) * (width_height_ratio))
+	chunk_size_y := img_height / new_height
+	return chunk_size_x, chunk_size_y
+}
+
 func CalculateChunkedBrightness(img image.Image, chunk_size_x int, chunk_size_y int) [][]int {
 
 	bounds := img.Bounds()

@@ -24,7 +24,6 @@ func main() {
 	_ = *c_flag
 
 	var args []string = flag.Args()
-	fmt.Println(args)
 	if len(args) < 1 {
 		fmt.Println("Please provide the path of the image to convert.")
 		return

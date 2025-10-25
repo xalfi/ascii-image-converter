@@ -32,11 +32,15 @@ Provide a path to an image file as the last argument. Example:
 # run with defaults
 go run ./cmd path/to/image.jpg
 
-# custom width, ratio and color
-go run ./cmd -w 80 -r 0.6 -c false path/to/image.jpg
+# custom width, ratio and monochrome
+go run ./cmd -w 80 -r 0.6 -m path/to/image.jpg
 ```
 
 ## CLI flags
+- `-w <int>`: The width (num. of character) of the generated ascii image
+- `-r <float>`: The ration between width and height of a single character (defaults to 0.5, which is good for most terminal emulators)
+- `-m`: Monochrome Mode (generates only black and white output)
+- `-o <output.jpg>`: Store the scaled down images to a jpg file (only colors as pixels, no ascii symbols)
 
 
 ## License

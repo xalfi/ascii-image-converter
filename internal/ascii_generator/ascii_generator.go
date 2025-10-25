@@ -13,13 +13,6 @@ func GenerateAsciiArtFromBrightness(chunked_brightness [][]int) {
 		}
 		fmt.Println("")
 	}
-	for y_i := 0; y_i < len(chunked_brightness); y_i++ {
-		for x_i := 0; x_i < len(chunked_brightness[y_i]); x_i++ {
-			fmt.Print(brightness_to_character(chunked_brightness[y_i][x_i]))
-		}
-		fmt.Println("")
-	}
-
 }
 
 func brightness_to_character(brightness int) string {

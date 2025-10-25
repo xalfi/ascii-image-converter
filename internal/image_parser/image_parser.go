@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"image"
 	"image/color"
+	_ "image/gif"
 	"image/jpeg"
+	_ "image/png"
 	"os"
 )
 
@@ -26,13 +28,20 @@ func ReadImageFromPath(path string) image.Image {
 
 }
 
-func SaveChunkedImageAsBlackWhite(chunked_brightness [][]int, out_filename string) {
+func SaveChunkedImage(chunked_average [][][]int, out_filename string) {
 
-	new_image := image.NewGray(image.Rect(0, 0, len(chunked_brightness[0]), len(chunked_brightness)))
+	new_image := image.NewRGBA(image.Rect(0, 0, len(chunked_average[0]), len(chunked_average)))
 
-	for y_coord := 0; y_coord < len(chunked_brightness); y_coord++ {
-		for x_coord := 0; x_coord < len(chunked_brightness[0]); x_coord++ {
-			new_image.Set(x_coord, y_coord, color.Gray{uint8(chunked_brightness[y_coord][x_coord])})
+	for y_coord := 0; y_coord < len(chunked_average); y_coord++ {
+		for x_coord := 0; x_coord < len(chunked_average[0]); x_coord++ {
+			new_image.Set(x_coord, y_coord,
+				color.RGBA{
+					uint8(chunked_average[y_coord][x_coord][0]),
+					uint8(chunked_average[y_coord][x_coord][1]),
+					uint8(chunked_average[y_coord][x_coord][2]),
+					0,
+				},
+			)
 		}
 	}
 	outFile, err := os.Create(out_filename)
